@@ -51,6 +51,8 @@ namespace Graphic_Dilivery
             this.label7 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dayInfoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
@@ -151,7 +153,7 @@ namespace Graphic_Dilivery
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(520, 242);
+            this.textBox6.Location = new System.Drawing.Point(520, 300);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 20);
             this.textBox6.TabIndex = 10;
@@ -205,7 +207,7 @@ namespace Graphic_Dilivery
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(404, 249);
+            this.label6.Location = new System.Drawing.Point(404, 307);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(98, 13);
             this.label6.TabIndex = 20;
@@ -214,7 +216,7 @@ namespace Graphic_Dilivery
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(376, 286);
+            this.label7.Location = new System.Drawing.Point(379, 349);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(126, 13);
             this.label7.TabIndex = 21;
@@ -230,7 +232,7 @@ namespace Graphic_Dilivery
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(520, 286);
+            this.numericUpDown1.Location = new System.Drawing.Point(520, 342);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             1,
             0,
@@ -241,11 +243,30 @@ namespace Graphic_Dilivery
             this.numericUpDown1.TabIndex = 23;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(520, 249);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.TabIndex = 24;
+            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged_1);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(389, 256);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(116, 13);
+            this.label8.TabIndex = 25;
+            this.label8.Text = "Средняя цена заказа";
+            // 
             // ListofDeliverers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 450);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.textBox7);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label7);
@@ -298,5 +319,7 @@ namespace Graphic_Dilivery
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label8;
     }
 }

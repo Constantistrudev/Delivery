@@ -19,6 +19,11 @@ namespace Graphic_Dilivery
         public Statistic()
         {
             InitializeComponent();
+            textBox1.Text = Convert.ToString(DayInfo.CountOfOrders(Fileworker.Deliverers));
+            textBox2.Text = Convert.ToString(DayInfo.CountOfAllSucsessDeliveres(Fileworker.Deliverers));
+            textBox3.Text = Convert.ToString(DayInfo.CountOfAllCancledDeliveres(Fileworker.Deliverers));
+            textBox4.Text = Convert.ToString(DayInfo.GetAllPrice(Fileworker.Deliverers));
+            textBox5.Text = Convert.ToString(DayInfo.GetProfit(Fileworker.Deliverers));
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,22 +37,34 @@ namespace Graphic_Dilivery
         {
 
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            //textBox1.Show(DayInfo());
-        }
-
         private void Statistic_Load(object sender, EventArgs e)
         {
 
         }
 
-        //private void label13_Click(object sender, EventArgs e)
-        //{
-        //    //DayInfo.restourants
-        //    string best = "";
-        //    label13.Text = best;
-        //}
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

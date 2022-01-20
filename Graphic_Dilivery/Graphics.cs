@@ -19,7 +19,6 @@ namespace Graphic_Dilivery
         public Graphics()
         {
             InitializeComponent();
-            //DayInfo.CoutOfAllSucsessDeliveresByDeliverer();
             chart1.Series["NumberOfCanceledOrders"].Points.AddY();
             chart1.Series["NumberOfSucsessOrders"].Points.AddY();
 

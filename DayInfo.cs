@@ -25,6 +25,15 @@ namespace Delivery
             }
             return sum;
         }
+        public static int CountOfOrders(List<Deliverer> deliverers) //для графика день- количество заказов
+        {
+            int sum = 0;
+            foreach (Deliverer deliverer in deliverers)
+            {
+                    sum += deliverer.AllOrders;                
+            }
+            return sum;
+        }
         public static int CountOfAllSucsessDeliveres(List<Deliverer> deliverers) // для кругового графика где показано отношение успешных и неуспешных заказов
         {
             int sum = 0;

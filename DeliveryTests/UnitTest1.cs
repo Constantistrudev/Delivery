@@ -86,6 +86,13 @@ namespace DeliveryTests
             Assert.AreEqual(sum,answer);
         }
         [TestMethod]
+        public void CountOfOrdersTest()
+        {
+            int sum = DayInfo.CountOfOrders(DelivererTest);
+            int answer = 89;
+            Assert.AreEqual(sum, answer);
+        }
+        [TestMethod]
         public void CountOfAllSucsessDeliveresTest()
         {
             int sum = DayInfo.CountOfAllSucsessDeliveres(DelivererTest);

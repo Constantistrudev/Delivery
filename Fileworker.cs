@@ -17,24 +17,24 @@ namespace Delivery
         public static string WorkPath { get; set; }
         public static List<Deliverer> Deliverers = new List<Deliverer>();
         public static List<Deliverer> TableofDeliveres = new List<Deliverer>();
-        public static void AddDeliverer(string delivererNumber, int numberOfSucsessOrders, int namberOfCanceledOrders, int averageDistanceTraveled, int averageDeliveryTime, int workTime, int haveVehicle, DateTime workDay)
+        public static void AddDeliverer(string delivererNumber, int numberOfSucsessOrders, int namberOfCanceledOrders, int averageDistanceTraveled, int averageDeliveryTime, int averageOrderPrice, int workTime, int haveVehicle, DateTime workDay)
         {
             int index = Deliverers.FindIndex(x => x.DelivererNumber == delivererNumber &&  x.WorkDay == workDay);
             if (index == -1)
             {
-                Deliverers.Add(new Deliverer() { DelivererNumber = delivererNumber, NumberOfSucsessOrders = numberOfSucsessOrders, NumberOfCancledOrders = namberOfCanceledOrders, AverageDistanceTraveled = averageDistanceTraveled, AverageDeliveryTime = averageDeliveryTime, WorkTime = workTime, HaveVehicle = haveVehicle, WorkDay = workDay });
+                Deliverers.Add(new Deliverer() { DelivererNumber = delivererNumber, NumberOfSucsessOrders = numberOfSucsessOrders, NumberOfCancledOrders = namberOfCanceledOrders, AverageDistanceTraveled = averageDistanceTraveled, AverageDeliveryTime = averageDeliveryTime,AverageOrderPrice = averageOrderPrice, WorkTime = workTime, HaveVehicle = haveVehicle, WorkDay = workDay });
                 File.WriteAllText(WorkPath, Serializer<Deliverer>(Deliverers));
-                AddDelivererAtTable(delivererNumber, numberOfSucsessOrders, namberOfCanceledOrders, averageDistanceTraveled, averageDeliveryTime, workTime, haveVehicle, workDay);
+                AddDelivererAtTable(delivererNumber, numberOfSucsessOrders, namberOfCanceledOrders, averageDistanceTraveled, averageDeliveryTime,averageOrderPrice, workTime, haveVehicle, workDay);
 
             }
             else
             {
-                EditDeliverer(index, delivererNumber, numberOfSucsessOrders, namberOfCanceledOrders, averageDistanceTraveled, averageDeliveryTime, workTime, haveVehicle, workDay);
+                EditDeliverer(index, delivererNumber, numberOfSucsessOrders, namberOfCanceledOrders, averageDistanceTraveled, averageDeliveryTime, averageOrderPrice, workTime, haveVehicle, workDay);
             }
            
 
         }
-        public static void AddDelivererAtTable(string delivererNumber, int numberOfSucsessOrders, int namberOfCanceledOrders, int averageDistanceTraveled, int averageDeliveryTime, int workTime, int haveVehicle, DateTime workDay)
+        public static void AddDelivererAtTable(string delivererNumber, int numberOfSucsessOrders, int namberOfCanceledOrders, int averageDistanceTraveled, int averageDeliveryTime, int averageOrderPrice, int workTime, int haveVehicle, DateTime workDay)
         {   
                 int tableindex = TableofDeliveres.FindIndex(x => x.DelivererNumber == delivererNumber);
                 if (tableindex != -1)
@@ -42,20 +42,21 @@ namespace Delivery
                     TableofDeliveres[tableindex].NumberOfSucsessOrders += numberOfSucsessOrders;
                     TableofDeliveres[tableindex].NumberOfCancledOrders += namberOfCanceledOrders;
                     TableofDeliveres[tableindex].WorkTime += workTime;
-                    TableofDeliveres[tableindex].HaveVehicle = haveVehicle;
+                TableofDeliveres[tableindex].AverageOrderPrice = averageOrderPrice;
+                TableofDeliveres[tableindex].HaveVehicle = haveVehicle;
 
                 }
                 else
                 {
-                    TableofDeliveres.Add(new Deliverer() { DelivererNumber = delivererNumber, NumberOfSucsessOrders = numberOfSucsessOrders, NumberOfCancledOrders = namberOfCanceledOrders, AverageDistanceTraveled = averageDistanceTraveled, AverageDeliveryTime = averageDeliveryTime, WorkTime = workTime, HaveVehicle = haveVehicle, WorkDay = workDay });
+                    TableofDeliveres.Add(new Deliverer() { DelivererNumber = delivererNumber, NumberOfSucsessOrders = numberOfSucsessOrders, NumberOfCancledOrders = namberOfCanceledOrders, AverageDistanceTraveled = averageDistanceTraveled, AverageDeliveryTime = averageDeliveryTime, AverageOrderPrice = averageOrderPrice, WorkTime = workTime, HaveVehicle = haveVehicle, WorkDay = workDay });
                 }
         }
-        public static void IfDelivererExist(string delivererNumber, int numberOfSucsessOrders, int namberOfCanceledOrders, int averageDistanceTraveled, int averageDeliveryTime, int workTime, int haveVehicle, DateTime workDay)
+        public static void IfDelivererExist(string delivererNumber, int numberOfSucsessOrders, int namberOfCanceledOrders, int averageDistanceTraveled, int averageDeliveryTime,int averageOrderPrice, int workTime, int haveVehicle, DateTime workDay)
         {
             int index = Deliverers.FindIndex(x => x.DelivererNumber == delivererNumber );
             if (index != -1)
             {
-                EditDeliverer(index, delivererNumber, numberOfSucsessOrders, namberOfCanceledOrders, averageDistanceTraveled, averageDeliveryTime, workTime, haveVehicle, workDay);
+                EditDeliverer(index, delivererNumber, numberOfSucsessOrders, namberOfCanceledOrders, averageDistanceTraveled, averageDeliveryTime, averageOrderPrice, workTime, haveVehicle, workDay);
             }
         }
         public static void DeliteDeliverer(int deliverer)
@@ -63,7 +64,7 @@ namespace Delivery
             Deliverers.RemoveAt(deliverer);
             File.WriteAllText(WorkPath, Serializer<Deliverer>(Deliverers));
         }
-        public static void EditDeliverer(int index, string delivererNumber, int numberOfSucsessOrders, int namberOfCanceledOrders, int averageDistanceTraveled, int averageDeliveryTime, int workTime, int haveVehicle, DateTime workDay )
+        public static void EditDeliverer(int index, string delivererNumber, int numberOfSucsessOrders, int namberOfCanceledOrders, int averageDistanceTraveled, int averageDeliveryTime,int averageOrderPrice, int workTime, int haveVehicle, DateTime workDay )
         {
             { 
                 Deliverers[index].DelivererNumber = delivererNumber;
@@ -71,6 +72,7 @@ namespace Delivery
                 Deliverers[index].NumberOfCancledOrders = namberOfCanceledOrders;
                 Deliverers[index].AverageDistanceTraveled = averageDistanceTraveled;
                 Deliverers[index].AverageDeliveryTime = averageDeliveryTime;
+                Deliverers[index].AverageOrderPrice = averageOrderPrice;
                 Deliverers[index].WorkTime = workTime;
                 Deliverers[index].HaveVehicle = haveVehicle;
                 Deliverers[index].WorkDay = workDay;
