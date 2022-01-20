@@ -13,69 +13,63 @@ namespace Delivery
 {
     public class DayInfo
     {
-        public static int CountDeliveresPerDay(DateTime date, int allOrders) //для графика день- количество заказов
+        public static int CountDeliveresPerDay(List<Deliverer> deliverers, DateTime date) //для графика день- количество заказов
         {
             int sum = 0;
-            foreach (Deliverer deliverer in Fileworker.Deliverers)
+            foreach (Deliverer deliverer in deliverers)
             {
-                if (deliverer.WorkDay == date && deliverer.AllOrders == allOrders)
+                if (deliverer.WorkDay == date )
                 {
-                    sum += allOrders;
+                    sum += deliverer.AllOrders;
                 }
             }
             return sum;
         }
-        public static List<int> CountOfAllSucsessDeliveres(int numberOfSucsessOrders, int numberOfCancledOrders) // для кругового графика где показано отношение успешных и неуспешных заказов
-        {
-            int sucsessfulsum = 0;
-            int canceledsum = 0;
-            List<int> vs = new List<int>();
-            foreach (Deliverer deliverer in Fileworker.Deliverers)
-            {
-                if (deliverer.NumberOfSucsessOrders == numberOfSucsessOrders && deliverer.NumberOfCancledOrders == numberOfCancledOrders)
-                {
-                    sucsessfulsum += numberOfSucsessOrders;
-                    canceledsum += numberOfCancledOrders;
-                }
-
-            }
-            vs.Add(sucsessfulsum);
-            vs.Add(canceledsum);
-            return vs;
-        }
-        public static int CountOfAllDelivererWorkTime(string delivererNumber, int workTime)// для столбикового графика курьер-часы
+        public static int CountOfAllSucsessDeliveres(List<Deliverer> deliverers) // для кругового графика где показано отношение успешных и неуспешных заказов
         {
             int sum = 0;
-            foreach (Deliverer deliverer in Fileworker.Deliverers)
+            foreach (Deliverer deliverer in deliverers)
             {
-                if (deliverer.DelivererNumber == delivererNumber && deliverer.WorkTime == workTime)
+                    sum += deliverer.NumberOfSucsessOrders;
+            }
+            return sum;
+        }
+        public static int CountOfAllCancledDeliveres(List<Deliverer> deliverers) 
+        {
+            int sum = 0;
+            foreach (Deliverer deliverer in deliverers)
+            {
+                sum += deliverer.NumberOfCancledOrders;
+            }
+            return sum;
+        }
+        public static int CountOfAllDelivererWorkTime(List<Deliverer> deliverers,string delivererNumber)// для столбикового графика курьер-часы
+        {
+            int sum = 0;
+            foreach (Deliverer deliverer in deliverers)
+            {
+                if (deliverer.DelivererNumber == delivererNumber)
                 {
-                    sum += workTime;
+                    sum += deliverer.WorkTime;
                 }
             }
             return sum;
         }
-        public static double GetProfit(string delivererNumber, int profit) //Общая приблыль
+        public static double GetProfit(List<Deliverer> deliverers) //Общая приблыль
         {
             double sum = 0;
-            foreach (Deliverer deliverer in Fileworker.Deliverers)
+            foreach (Deliverer deliverer in deliverers)
             {
-                if (deliverer.DelivererNumber == delivererNumber && deliverer.Profit == profit)
-                {
-                    sum += profit;
-                }
+                    sum += deliverer.Profit;
             }
             return sum;
         }
-        public static int GetAllPrice(string delivererNumber, int allOrderPrice) //Общая сумма заказа
+        public static int GetAllPrice(List<Deliverer> deliverers) //Общая сумма заказа
         {
             int sum = 0;
-            foreach (Deliverer deliverer in Fileworker.Deliverers)
+            foreach (Deliverer deliverer in deliverers)
             {
-                if (deliverer.DelivererNumber == delivererNumber && deliverer.AllOrderPrice == allOrderPrice)
-                {
-                    sum += allOrderPrice;
-                }
+                    sum += deliverer.AllOrderPrice;
             }
             return sum;
         }

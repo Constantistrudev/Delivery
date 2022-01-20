@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
+
 
 namespace Delivery
 {
@@ -24,7 +26,7 @@ namespace Delivery
             }
         public double Profit
         {
-            get { return 50 * AllOrders + AverageOrderPrice * NumberOfSucsessOrders * 0.3 - 110 * NumberOfSucsessOrders; }
+            get { return 50 * AllOrders + AverageOrderPrice * NumberOfSucsessOrders * 0.2 - 110 * NumberOfSucsessOrders; }
         }
         public int AllOrders
         {
