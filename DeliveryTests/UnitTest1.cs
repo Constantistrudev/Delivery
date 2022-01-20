@@ -23,7 +23,7 @@ namespace DeliveryTests
             AverageDeliveryTime = 12,
             AverageOrderPrice = 1300,
             WorkTime = 13,
-            WorkDay = new DateTime(22,01, 2022),
+            WorkDay = new DateTime(2022, 01, 22),
             HaveVehicle = 0
 
         };
@@ -36,7 +36,7 @@ namespace DeliveryTests
             AverageDeliveryTime = 15,
             AverageOrderPrice = 3500,
             WorkTime = 13,
-            WorkDay = new DateTime(22,01, 2022),
+            WorkDay = new DateTime(2022, 01, 22),
             HaveVehicle = 1
         };
         static Deliverer c = new Deliverer()
@@ -48,7 +48,7 @@ namespace DeliveryTests
             AverageDeliveryTime = 10,
             AverageOrderPrice = 1000,
             WorkTime = 8,
-            WorkDay = new DateTime(23,01, 2022),
+            WorkDay = new DateTime(2022, 01, 23),
             HaveVehicle = 1
         };
         static Deliverer d = new Deliverer()
@@ -60,7 +60,7 @@ namespace DeliveryTests
             AverageDeliveryTime = 10,
             AverageOrderPrice = 1600,
             WorkTime = 5,
-            WorkDay = new DateTime(22, 01, 2022),
+            WorkDay = new DateTime(2022, 01, 22),
             HaveVehicle = 0
         };
         static Deliverer e = new Deliverer()
@@ -72,7 +72,7 @@ namespace DeliveryTests
             AverageDeliveryTime = 30,
             AverageOrderPrice = 2000,
             WorkTime = 14,
-            WorkDay = new DateTime(23, 01, 2022),
+            WorkDay = new DateTime(2022, 01, 23),
             HaveVehicle = 1
         };
         List<Deliverer> DelivererTest = new List<Deliverer>() { a, b, c, d, e };
@@ -80,7 +80,7 @@ namespace DeliveryTests
         public void CountDeliveresPerDayTest()
         {
            
-            DateTime dta = new DateTime(22, 01, 2022); 
+            DateTime dta = new DateTime(2022, 01, 22); 
             int sum =DayInfo.CountDeliveresPerDay(DelivererTest,dta);
             int answer = 52;
             Assert.AreEqual(sum,answer);
@@ -110,14 +110,14 @@ namespace DeliveryTests
         public void GetProfitTest()
         {
             double sum = DayInfo.GetProfit(DelivererTest);
-            double answer = 22950;
+            double answer = 26550;
             Assert.AreEqual(sum, answer);
         }
         [TestMethod]
         public void GetAllPrice()
         {
             int sum = DayInfo.GetAllPrice(DelivererTest);
-            int answer = 150000;
+            int answer = 171200;
             Assert.AreEqual(sum, answer);
         }
     }
