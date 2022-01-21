@@ -23,6 +23,7 @@ namespace Graphic_Dilivery
             //chart1.Series["NumberOfSucsessOrders"].Points.AddY(Convert.ToString(DayInfo.CountOfAllSucsessDeliveres(Fileworker.Deliverers)));
             for (int index =0; index < Fileworker.Deliverers.Count(); index++)
             {
+                // Что за бред объясни
                 chart1.Series["NumberOfCanceledOrders"].Points.AddXY(Convert.ToString(DayInfo.CountOfAllCancledDeliveres(Fileworker.Deliverers)));
             }
         }

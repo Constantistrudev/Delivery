@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Delivery
 {
+    // Нахер
     public class Class1
     {
     }

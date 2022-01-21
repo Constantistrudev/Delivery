@@ -17,6 +17,8 @@ namespace Delivery
         public static string WorkPath { get; set; }
         public static List<Deliverer> Deliverers = new List<Deliverer>();
         public static List<Deliverer> TableofDeliveres = new List<Deliverer>();
+        
+        // А может стоит сразу подавать на вход объект типа Deliverer? Это риторический вопрос
         public static void AddDeliverer(string delivererNumber, int numberOfSucsessOrders, int namberOfCanceledOrders, int averageDistanceTraveled, int averageDeliveryTime, int averageOrderPrice, int workTime, int haveVehicle, DateTime workDay)
         {
             int index = Deliverers.FindIndex(x => x.DelivererNumber == delivererNumber &&  x.WorkDay == workDay);
@@ -30,6 +32,8 @@ namespace Delivery
                 EditDeliverer(index, delivererNumber, numberOfSucsessOrders, namberOfCanceledOrders, averageDistanceTraveled, averageDeliveryTime, averageOrderPrice, workTime, haveVehicle, workDay);
             }           
         }
+
+        // Не испоьзуется, снести нахрен, имя писец... 
         public static void IfDelivererExist(string delivererNumber, int numberOfSucsessOrders, int namberOfCanceledOrders, int averageDistanceTraveled, int averageDeliveryTime,int averageOrderPrice, int workTime, int haveVehicle, DateTime workDay)
         {
             int index = Deliverers.FindIndex(x => x.DelivererNumber == delivererNumber );
@@ -43,6 +47,9 @@ namespace Delivery
             Deliverers.RemoveAt(deliverer);
             File.WriteAllText(WorkPath, Serializer<Deliverer>(Deliverers));
         }
+        // А может стоит сразу подавать на вход объект типа Deliverer? Это риторический вопрос
+        // Можно еще через делегат
+        // А номер курьера уникальный?
         public static void EditDeliverer(int index, string delivererNumber, int numberOfSucsessOrders, int namberOfCanceledOrders, int averageDistanceTraveled, int averageDeliveryTime,int averageOrderPrice, int workTime, int haveVehicle, DateTime workDay )
         {
             { 

@@ -16,6 +16,9 @@ namespace Delivery
         public static int CountDeliveresPerDay(List<Deliverer> deliverers, DateTime date) //для графика день- количество заказов
         {
             int sum = 0;
+            // Не умеешь пользоваться LINQ
+            // deliverers.Where(d => d.WorkDay == date)
+            //    .Sum(d => d.AllOrders);
             foreach (Deliverer deliverer in deliverers)
             {
                 if (deliverer.WorkDay == date )
@@ -27,6 +30,7 @@ namespace Delivery
         }
         public static int CountOfOrders(List<Deliverer> deliverers) //для графика день- количество заказов
         {
+            // Не умеешь пользоваться LINQ
             int sum = 0;
             foreach (Deliverer deliverer in deliverers)
             {
@@ -36,6 +40,7 @@ namespace Delivery
         }
         public static int CountOfAllSucsessDeliveres(List<Deliverer> deliverers) // для кругового графика где показано отношение успешных и неуспешных заказов
         {
+            // Тут я даже копипастить устал...
             int sum = 0;
             foreach (Deliverer deliverer in deliverers)
             {
@@ -84,12 +89,17 @@ namespace Delivery
         }
         public static List<Deliverer> SortList(List<Deliverer> deliverers)
         {
-            var NewListDeliverers = deliverers.GroupBy(g => g.DelivererNumber).OrderBy(g => g.Key).Select(g => new Deliverer
-            {
-            DelivererNumber = g.Key,
-            WorkTime = g.Sum(deliverer => deliverer.WorkTime),
-            Rating = g.Sum(deliverer => deliverer.Rating)
-             }).ToList();
+            // Кто тебя учил так именовать локальные переменные?
+            // А то есть все таки можешь в LINQ... А что не пользуешься?
+            // Форматирование блэт!
+            var NewListDeliverers = deliverers.GroupBy(g => g.DelivererNumber)
+                .OrderBy(g => g.Key)
+                .Select(g => new Deliverer
+                {
+                    DelivererNumber = g.Key,
+                    WorkTime = g.Sum(deliverer => deliverer.WorkTime),
+                    Rating = g.Sum(deliverer => deliverer.Rating)
+                }).ToList();
             return NewListDeliverers;
         }
         
