@@ -32,10 +32,11 @@ namespace Delivery
         {
             get { return NumberOfSucsessOrders + NumberOfCancledOrders; }
         }
+        public double rating = 0 ;
         public double Rating
         {
-            get {return NumberOfSucsessOrders*0.05 - NumberOfCancledOrders*0.1;}
-            set { }
+            get { return NumberOfSucsessOrders * 0.05 - NumberOfCancledOrders * 0.1; }
+            set { value = rating;  }
         }
 
     }

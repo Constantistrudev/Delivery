@@ -86,12 +86,16 @@ namespace Delivery
         {
             var NewListDeliverers = deliverers.GroupBy(g => g.DelivererNumber).OrderBy(g => g.Key).Select(g => new Deliverer
             {
-            DelivererNumber = g.Key,
-            WorkTime = g.Sum(deliverer => deliverer.WorkTime),
-            Rating = g.Sum(deliverer => deliverer.Rating)
-             }).ToList();
+                DelivererNumber = g.Key,
+                WorkTime = g.Sum(deliverer => deliverer.WorkTime),
+                Rating = g.Sum(deliverer => deliverer.Rating)
+            }).ToList();
             return NewListDeliverers;
         }
-        
+        public static IEnumerable<(DateTime WorkDay, int AllOrders)> LineGraphic(List<Deliverer> deliverers)
+        {
+            var NewListDeliverers = deliverers.GroupBy(deliverer => deliverer.WorkDay.Date).Select(d => (Date: d.Key, AllOrders: d.Sum(x=>x.AllOrders)));
+            return NewListDeliverers;
+        }
     }
 }

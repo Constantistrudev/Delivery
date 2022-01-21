@@ -19,12 +19,8 @@ namespace Graphic_Dilivery
         public CirleGraphic()
         {
             InitializeComponent();
-
-            //chart1.Series["NumberOfSucsessOrders"].Points.AddY(Convert.ToString(DayInfo.CountOfAllSucsessDeliveres(Fileworker.Deliverers)));
-            for (int index =0; index < Fileworker.Deliverers.Count(); index++)
-            {
-                chart1.Series["NumberOfCanceledOrders"].Points.AddXY(Convert.ToString(DayInfo.CountOfAllCancledDeliveres(Fileworker.Deliverers)));
-            }
+                chart1.Series[0].Points.AddY(Convert.ToString(DayInfo.CountOfAllCancledDeliveres(Fileworker.Deliverers)));
+                chart1.Series[0].Points.AddY(Convert.ToString(DayInfo.CountOfAllSucsessDeliveres(Fileworker.Deliverers)));
         }
 
         private void chart1_Click(object sender, EventArgs e)

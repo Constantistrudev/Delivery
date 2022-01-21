@@ -155,14 +155,15 @@ namespace Graphic_Dilivery
 
         private void круговойToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PillarGraphic nfrm = new PillarGraphic();
+            CirleGraphic nfrm = new CirleGraphic();
             nfrm.Show();
             this.Hide();
         }
 
         private void столбиковыйToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CirleGraphic nfrm = new CirleGraphic();
+
+            PillarGraphic nfrm = new PillarGraphic();
             nfrm.Show();
             this.Hide();
         }

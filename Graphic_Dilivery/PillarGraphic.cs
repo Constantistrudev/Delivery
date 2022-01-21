@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Delivery;
 
 namespace Graphic_Dilivery
 {
@@ -15,6 +16,16 @@ namespace Graphic_Dilivery
         public PillarGraphic()
         {
             InitializeComponent();
+            List<Deliverer> list = new List<Deliverer>(DayInfo.SortList(Fileworker.Deliverers));
+            for (int i = 0; i < list.Count; i++)
+            {
+                chart1.Series[i].Points.AddXY(list[i].DelivererNumber, list[i].WorkTime);
+            }
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
