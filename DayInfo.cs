@@ -82,6 +82,16 @@ namespace Delivery
             }
             return sum;
         }
-
+        public static List<Deliverer> SortList(List<Deliverer> deliverers)
+        {
+            var NewListDeliverers = deliverers.GroupBy(g => g.DelivererNumber).OrderBy(g => g.Key).Select(g => new Deliverer
+            {
+            DelivererNumber = g.Key,
+            WorkTime = g.Sum(deliverer => deliverer.WorkTime),
+            Rating = g.Sum(deliverer => deliverer.Rating)
+             }).ToList();
+            return NewListDeliverers;
+        }
+        
     }
 }

@@ -35,6 +35,7 @@ namespace Delivery
         public double Rating
         {
             get {return NumberOfSucsessOrders*0.05 - NumberOfCancledOrders*0.1;}
+            set { }
         }
 
     }

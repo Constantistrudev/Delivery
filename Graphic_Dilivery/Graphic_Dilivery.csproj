@@ -77,11 +77,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Graphics.cs">
+    <Compile Include="CirleGraphic.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Graphics.Designer.cs">
-      <DependentUpon>Graphics.cs</DependentUpon>
+    <Compile Include="CirleGraphic.Designer.cs">
+      <DependentUpon>CirleGraphic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LineGraphic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LineGraphic.Designer.cs">
+      <DependentUpon>LineGraphic.cs</DependentUpon>
     </Compile>
     <Compile Include="ListofDeliverers.cs">
       <SubType>Form</SubType>
@@ -95,6 +101,12 @@
     <Compile Include="Menu.designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="PillarGraphic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PillarGraphic.Designer.cs">
+      <DependentUpon>PillarGraphic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Statistic.cs">
@@ -103,14 +115,20 @@
     <Compile Include="Statistic.Designer.cs">
       <DependentUpon>Statistic.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Graphics.resx">
-      <DependentUpon>Graphics.cs</DependentUpon>
+    <EmbeddedResource Include="CirleGraphic.resx">
+      <DependentUpon>CirleGraphic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LineGraphic.resx">
+      <DependentUpon>LineGraphic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListofDeliverers.resx">
       <DependentUpon>ListofDeliverers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PillarGraphic.resx">
+      <DependentUpon>PillarGraphic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

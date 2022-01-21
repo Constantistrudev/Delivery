@@ -36,20 +36,20 @@ namespace Delivery
         }
         public static void AddDelivererAtTable(string delivererNumber, int numberOfSucsessOrders, int namberOfCanceledOrders, int averageDistanceTraveled, int averageDeliveryTime, int averageOrderPrice, int workTime, int haveVehicle, DateTime workDay)
         {   
-                int tableindex = TableofDeliveres.FindIndex(x => x.DelivererNumber == delivererNumber);
-                if (tableindex != -1)
-                {
-                    TableofDeliveres[tableindex].NumberOfSucsessOrders += numberOfSucsessOrders;
-                    TableofDeliveres[tableindex].NumberOfCancledOrders += namberOfCanceledOrders;
-                    TableofDeliveres[tableindex].WorkTime += workTime;
-                TableofDeliveres[tableindex].AverageOrderPrice = averageOrderPrice;
-                TableofDeliveres[tableindex].HaveVehicle = haveVehicle;
+                //int tableindex = TableofDeliveres.FindIndex(x => x.DelivererNumber == delivererNumber);
+                //if (tableindex != -1)
+                //{
+                //    TableofDeliveres[tableindex].NumberOfSucsessOrders += numberOfSucsessOrders;
+                //    TableofDeliveres[tableindex].NumberOfCancledOrders += namberOfCanceledOrders;
+                //    TableofDeliveres[tableindex].WorkTime += workTime;
+                //TableofDeliveres[tableindex].AverageOrderPrice = averageOrderPrice;
+                //TableofDeliveres[tableindex].HaveVehicle = haveVehicle;
 
-                }
-                else
-                {
-                    TableofDeliveres.Add(new Deliverer() { DelivererNumber = delivererNumber, NumberOfSucsessOrders = numberOfSucsessOrders, NumberOfCancledOrders = namberOfCanceledOrders, AverageDistanceTraveled = averageDistanceTraveled, AverageDeliveryTime = averageDeliveryTime, AverageOrderPrice = averageOrderPrice, WorkTime = workTime, HaveVehicle = haveVehicle, WorkDay = workDay });
-                }
+                //}
+                //else
+                //{
+                //    TableofDeliveres.Add(new Deliverer() { DelivererNumber = delivererNumber, NumberOfSucsessOrders = numberOfSucsessOrders, NumberOfCancledOrders = namberOfCanceledOrders, AverageDistanceTraveled = averageDistanceTraveled, AverageDeliveryTime = averageDeliveryTime, AverageOrderPrice = averageOrderPrice, WorkTime = workTime, HaveVehicle = haveVehicle, WorkDay = workDay });
+                //}
         }
         public static void IfDelivererExist(string delivererNumber, int numberOfSucsessOrders, int namberOfCanceledOrders, int averageDistanceTraveled, int averageDeliveryTime,int averageOrderPrice, int workTime, int haveVehicle, DateTime workDay)
         {
@@ -89,6 +89,7 @@ namespace Delivery
         {
             WorkPath = path;
             Deliverers.AddRange(Deserializer(WorkPath));
+            //TableofDeliveres.AddRange(Deliverers);
             File.OpenWrite(path).Close();
         }
         public static string Serializer<T>(List<T> list)

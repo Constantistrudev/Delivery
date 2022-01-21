@@ -18,18 +18,20 @@ namespace Graphic_Dilivery
         public Menu()
         {
             InitializeComponent();
-            dataGridView1.DataSource = Fileworker.TableofDeliveres;
+            //List < Deliverer >deliverers = DayInfo.SortList(Fileworker.Deliverers);
+            //dataGridView1.DataSource = deliverers;
+            List<Deliverer> temp = DayInfo.SortList(Fileworker.Deliverers);
+
             DataTable table = new DataTable();
             table.Columns.Add("Номер сумки", typeof(string));
-            table.Columns.Add("Количество успешных закзаов", typeof(int));
-            table.Columns.Add("Количество провальных заказов", typeof(int));
             table.Columns.Add("Рабочее время", typeof(int));
             table.Columns.Add("Наличие транспорта", typeof(int));
             table.Columns.Add("Рейтинг", typeof(double));
+            //dataGridView1.DataSource = temp;
             for (int index = 0; index < Fileworker.TableofDeliveres.Count; index++)
             {
 
-                table.Rows.Add(Fileworker.TableofDeliveres[index].DelivererNumber, Fileworker.TableofDeliveres[index].NumberOfSucsessOrders, Fileworker.TableofDeliveres[index].NumberOfCancledOrders, Fileworker.TableofDeliveres[index].WorkTime, Fileworker.TableofDeliveres[index].HaveVehicle, Fileworker.TableofDeliveres[index].Rating);
+                table.Rows.Add(temp[index].DelivererNumber, temp[index].WorkTime, temp[index].HaveVehicle, temp[index].Rating);
             }
             dataGridView1.DataSource = table;
         }
@@ -140,6 +142,32 @@ namespace Graphic_Dilivery
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+        }
+
+        private void графикиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void линейныйToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LineGraphic nfrm = new LineGraphic();
+            nfrm.Show();
+            this.Hide();
+        }
+
+        private void круговойToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PillarGraphic nfrm = new PillarGraphic();
+            nfrm.Show();
+            this.Hide();
+        }
+
+        private void столбиковыйToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CirleGraphic nfrm = new CirleGraphic();
+            nfrm.Show();
+            this.Hide();
         }
     }
 }

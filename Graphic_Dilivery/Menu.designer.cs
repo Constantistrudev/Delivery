@@ -43,6 +43,10 @@ namespace Graphic_Dilivery
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.графикиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.столбиковыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.круговойToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.линейныйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -128,7 +132,8 @@ namespace Graphic_Dilivery
             // 
             this.прочееToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.смотретьСтатистикуToolStripMenuItem,
-            this.оПрограммеToolStripMenuItem});
+            this.оПрограммеToolStripMenuItem,
+            this.графикиToolStripMenuItem});
             this.прочееToolStripMenuItem.Name = "прочееToolStripMenuItem";
             this.прочееToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.прочееToolStripMenuItem.Text = "Прочее";
@@ -161,6 +166,38 @@ namespace Graphic_Dilivery
             this.dataGridView1.Size = new System.Drawing.Size(818, 358);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // графикиToolStripMenuItem
+            // 
+            this.графикиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.столбиковыйToolStripMenuItem,
+            this.круговойToolStripMenuItem,
+            this.линейныйToolStripMenuItem});
+            this.графикиToolStripMenuItem.Name = "графикиToolStripMenuItem";
+            this.графикиToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.графикиToolStripMenuItem.Text = "графики";
+            this.графикиToolStripMenuItem.Click += new System.EventHandler(this.графикиToolStripMenuItem_Click);
+            // 
+            // столбиковыйToolStripMenuItem
+            // 
+            this.столбиковыйToolStripMenuItem.Name = "столбиковыйToolStripMenuItem";
+            this.столбиковыйToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.столбиковыйToolStripMenuItem.Text = "Столбиковый";
+            this.столбиковыйToolStripMenuItem.Click += new System.EventHandler(this.столбиковыйToolStripMenuItem_Click);
+            // 
+            // круговойToolStripMenuItem
+            // 
+            this.круговойToolStripMenuItem.Name = "круговойToolStripMenuItem";
+            this.круговойToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.круговойToolStripMenuItem.Text = "Круговой";
+            this.круговойToolStripMenuItem.Click += new System.EventHandler(this.круговойToolStripMenuItem_Click);
+            // 
+            // линейныйToolStripMenuItem
+            // 
+            this.линейныйToolStripMenuItem.Name = "линейныйToolStripMenuItem";
+            this.линейныйToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.линейныйToolStripMenuItem.Text = "Линейный";
+            this.линейныйToolStripMenuItem.Click += new System.EventHandler(this.линейныйToolStripMenuItem_Click);
             // 
             // Menu
             // 
@@ -195,6 +232,10 @@ namespace Graphic_Dilivery
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem списокКурьеровToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ToolStripMenuItem графикиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem столбиковыйToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem круговойToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem линейныйToolStripMenuItem;
     }
 }
 
