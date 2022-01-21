@@ -19,7 +19,7 @@ namespace Graphic_Dilivery
             List<Deliverer> list = new List<Deliverer>(DayInfo.SortList(Fileworker.Deliverers));
             for (int i = 0; i < list.Count; i++)
             {
-                chart1.Series[i].Points.AddXY(list[i].DelivererNumber, list[i].WorkTime);
+                chart1.Series[0].Points.AddXY(list[i].DelivererNumber, list[i].WorkTime);
             }
         }
 
