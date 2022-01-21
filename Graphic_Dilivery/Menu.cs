@@ -18,17 +18,14 @@ namespace Graphic_Dilivery
         public Menu()
         {
             InitializeComponent();
-            //List < Deliverer >deliverers = DayInfo.SortList(Fileworker.Deliverers);
-            //dataGridView1.DataSource = deliverers;
             List<Deliverer> temp = DayInfo.SortList(Fileworker.Deliverers);
-
+            dataGridView1.DataSource = Fileworker.Deliverers;
             DataTable table = new DataTable();
             table.Columns.Add("Номер сумки", typeof(string));
             table.Columns.Add("Рабочее время", typeof(int));
             table.Columns.Add("Наличие транспорта", typeof(int));
             table.Columns.Add("Рейтинг", typeof(double));
-            //dataGridView1.DataSource = temp;
-            for (int index = 0; index < Fileworker.TableofDeliveres.Count; index++)
+            for (int index = 0; index < temp.Count; index++)
             {
 
                 table.Rows.Add(temp[index].DelivererNumber, temp[index].WorkTime, temp[index].HaveVehicle, temp[index].Rating);
