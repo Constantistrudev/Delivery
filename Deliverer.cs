@@ -18,26 +18,24 @@ namespace Delivery
         public int AverageOrderPrice { get; set; }
         public int WorkTime { get; set; }
         public DateTime WorkDay { get; set; }
-        public int HaveVehicle { get; set; }
+        public bool HaveVehicle { get; set; }
 
-        public int AllOrderPrice
+        public decimal AllOrderPrice
             {
             get { return AverageOrderPrice * AllOrders; }
             }
-        public double Profit
+        decimal profit = 0;
+        public decimal   Profit
         {
-            get { return 50 * AllOrders + AverageOrderPrice * NumberOfSucsessOrders * 0.2 - 110 * NumberOfSucsessOrders; }
+            get { return  profit=50M * AllOrders + AverageOrderPrice * NumberOfSucsessOrders * 0.2M - 110 * NumberOfSucsessOrders; }
         }
         public int AllOrders
         {
             get { return NumberOfSucsessOrders + NumberOfCancledOrders; }
         }
-        public double rating = 0 ;
         public double Rating
         {
             get { return NumberOfSucsessOrders * 0.05 - NumberOfCancledOrders * 0.1; }
-            set { value = rating;  }
         }
-
     }
 }

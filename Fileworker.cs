@@ -14,36 +14,32 @@ namespace Delivery
 {
     public class Fileworker
     {
+        private static bool BoolConvertor(int val)
+        {
+            return val == 1 ? true : false;
+        }
         public static string WorkPath { get; set; }
         public static List<Deliverer> Deliverers = new List<Deliverer>();
-        public static List<Deliverer> TableofDeliveres = new List<Deliverer>();
         public static void AddDeliverer(string delivererNumber, int numberOfSucsessOrders, int namberOfCanceledOrders, int averageDistanceTraveled, int averageDeliveryTime, int averageOrderPrice, int workTime, int haveVehicle, DateTime workDay)
         {
+            bool Vehicle = BoolConvertor(haveVehicle);
             int index = Deliverers.FindIndex(x => x.DelivererNumber == delivererNumber &&  x.WorkDay == workDay);
             if (index == -1)
             {
-                Deliverers.Add(new Deliverer() { DelivererNumber = delivererNumber, NumberOfSucsessOrders = numberOfSucsessOrders, NumberOfCancledOrders = namberOfCanceledOrders, AverageDistanceTraveled = averageDistanceTraveled, AverageDeliveryTime = averageDeliveryTime,AverageOrderPrice = averageOrderPrice, WorkTime = workTime, HaveVehicle = haveVehicle, WorkDay = workDay });
+                Deliverers.Add(new Deliverer() { DelivererNumber = delivererNumber, NumberOfSucsessOrders = numberOfSucsessOrders, NumberOfCancledOrders = namberOfCanceledOrders, AverageDistanceTraveled = averageDistanceTraveled, AverageDeliveryTime = averageDeliveryTime,AverageOrderPrice = averageOrderPrice, WorkTime = workTime, HaveVehicle = Vehicle, WorkDay = workDay });
                 File.WriteAllText(WorkPath, Serializer<Deliverer>(Deliverers));
             }
             else
             {
-                EditDeliverer(index, delivererNumber, numberOfSucsessOrders, namberOfCanceledOrders, averageDistanceTraveled, averageDeliveryTime, averageOrderPrice, workTime, haveVehicle, workDay);
+                EditDeliverer(index, delivererNumber, numberOfSucsessOrders, namberOfCanceledOrders, averageDistanceTraveled, averageDeliveryTime, averageOrderPrice, workTime, Vehicle, workDay);
             }           
-        }
-        public static void IfDelivererExist(string delivererNumber, int numberOfSucsessOrders, int namberOfCanceledOrders, int averageDistanceTraveled, int averageDeliveryTime,int averageOrderPrice, int workTime, int haveVehicle, DateTime workDay)
-        {
-            int index = Deliverers.FindIndex(x => x.DelivererNumber == delivererNumber );
-            if (index != -1)
-            {
-                EditDeliverer(index, delivererNumber, numberOfSucsessOrders, namberOfCanceledOrders, averageDistanceTraveled, averageDeliveryTime, averageOrderPrice, workTime, haveVehicle, workDay);
-            }
         }
         public static void DeliteDeliverer(int deliverer)
         {
             Deliverers.RemoveAt(deliverer);
             File.WriteAllText(WorkPath, Serializer<Deliverer>(Deliverers));
         }
-        public static void EditDeliverer(int index, string delivererNumber, int numberOfSucsessOrders, int namberOfCanceledOrders, int averageDistanceTraveled, int averageDeliveryTime,int averageOrderPrice, int workTime, int haveVehicle, DateTime workDay )
+        public static void EditDeliverer(int index, string delivererNumber, int numberOfSucsessOrders, int namberOfCanceledOrders, int averageDistanceTraveled, int averageDeliveryTime,int averageOrderPrice, int workTime, bool haveVehicle, DateTime workDay )
         {
             { 
                 Deliverers[index].DelivererNumber = delivererNumber;
@@ -84,6 +80,7 @@ namespace Delivery
             Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
             WriteIndented = true
         };
+
     }
 }
 

@@ -23,12 +23,10 @@ namespace Graphic_Dilivery
             DataTable table = new DataTable();
             table.Columns.Add("Номер сумки", typeof(string));
             table.Columns.Add("Рабочее время", typeof(int));
-            table.Columns.Add("Наличие транспорта", typeof(int));
             table.Columns.Add("Рейтинг", typeof(double));
             for (int index = 0; index < temp.Count; index++)
             {
-
-                table.Rows.Add(temp[index].DelivererNumber, temp[index].WorkTime, temp[index].HaveVehicle, temp[index].Rating);
+                table.Rows.Add(temp[index].DelivererNumber, temp[index].WorkTime, temp[index].Rating);
             }
             dataGridView1.DataSource = table;
         }

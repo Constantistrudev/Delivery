@@ -24,7 +24,7 @@ namespace DeliveryTests
             AverageOrderPrice = 1300,
             WorkTime = 13,
             WorkDay = new DateTime(2022, 01, 22),
-            HaveVehicle = 0
+            HaveVehicle = false
 
         };
         static Deliverer b = new Deliverer()
@@ -37,7 +37,7 @@ namespace DeliveryTests
             AverageOrderPrice = 3500,
             WorkTime = 13,
             WorkDay = new DateTime(2022, 01, 22),
-            HaveVehicle = 1
+            HaveVehicle = true
         };
         static Deliverer c = new Deliverer()
         {
@@ -49,7 +49,7 @@ namespace DeliveryTests
             AverageOrderPrice = 1000,
             WorkTime = 8,
             WorkDay = new DateTime(2022, 01, 23),
-            HaveVehicle = 1
+            HaveVehicle = true
         };
         static Deliverer d = new Deliverer()
         {
@@ -61,7 +61,7 @@ namespace DeliveryTests
             AverageOrderPrice = 1600,
             WorkTime = 5,
             WorkDay = new DateTime(2022, 01, 22),
-            HaveVehicle = 0
+            HaveVehicle = true
         };
         static Deliverer e = new Deliverer()
         {
@@ -73,7 +73,7 @@ namespace DeliveryTests
             AverageOrderPrice = 2000,
             WorkTime = 14,
             WorkDay = new DateTime(2022, 01, 23),
-            HaveVehicle = 1
+            HaveVehicle = true
         };
         List<Deliverer> DelivererTest = new List<Deliverer>() { a, b, c, d, e };
         [TestMethod]
@@ -116,14 +116,14 @@ namespace DeliveryTests
         [TestMethod]
         public void GetProfitTest()
         {
-            double sum = DayInfo.GetProfit(DelivererTest);
+            decimal sum = DayInfo.GetProfit(DelivererTest);
             double answer = 26550;
             Assert.AreEqual(sum, answer);
         }
         [TestMethod]
         public void GetAllPrice()
         {
-            int sum = DayInfo.GetAllPrice(DelivererTest);
+            decimal sum = DayInfo.GetAllPrice(DelivererTest);
             int answer = 171200;
             Assert.AreEqual(sum, answer);
         }

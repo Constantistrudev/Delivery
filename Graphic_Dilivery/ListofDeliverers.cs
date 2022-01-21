@@ -52,7 +52,7 @@ namespace Graphic_Dilivery
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length == 0 || textBox2.Text.Length == 0 || textBox3.Text.Length == 0 || textBox4.Text.Length == 0 || textBox5.Text.Length == 0 || textBox6.Text.Length == 0 || textBox7.Text.Length == 0 || numericUpDown1.Text.Length == 0)
+            if (textBox1.Text.Length == 0 || textBox2.Text.Length == 0 || textBox3.Text.Length == 0 || textBox4.Text.Length == 0 || textBox5.Text.Length == 0 || textBox6.Text.Length == 0 || textBox7.Text.Length == 0 )
             {
                 MessageBox.Show("Введите значения");
             }
@@ -67,7 +67,7 @@ namespace Graphic_Dilivery
         }
         private void button4_Click(object sender, EventArgs e)
         {
-            Fileworker.EditDeliverer(listBox1.SelectedIndex, textBox1.Text, int.Parse(textBox2.Text), int.Parse(textBox3.Text), int.Parse(textBox4.Text),int.Parse(textBox5.Text), int.Parse(textBox7.Text), int.Parse(textBox6.Text), int.Parse(numericUpDown1.Text), dateTimePicker1.Value);
+            Fileworker.EditDeliverer(listBox1.SelectedIndex, textBox1.Text, int.Parse(textBox2.Text), int.Parse(textBox3.Text), int.Parse(textBox4.Text),int.Parse(textBox5.Text), int.Parse(textBox7.Text), int.Parse(textBox6.Text), bool.Parse(numericUpDown1.Text), dateTimePicker1.Value);
             listBox1.DataSource = null;
             listBox1.DataSource = Fileworker.Deliverers;
         }
