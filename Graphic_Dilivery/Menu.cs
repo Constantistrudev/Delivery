@@ -109,7 +109,11 @@ namespace Graphic_Dilivery
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Программа сделана Трубчаниновым Константином ИСТ20о");
+            MessageBox.Show("Мурманский Госудаственный Технический Университет" +
+                "Кафедра цифровых технологий, математики и экономики"+
+                "Курсовая работа №2 по дисциплине «Технологии Программирования»" +
+                "Информационная система по контролю работы курьеров"+
+                " Программа сделана Трубчаниновым Константином ИСТ20о");
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
