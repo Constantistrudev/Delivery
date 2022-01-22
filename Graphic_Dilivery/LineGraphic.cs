@@ -28,5 +28,12 @@ namespace Graphic_Dilivery
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Menu nfrm = new Menu();
+            nfrm.Show();
+            this.Close();
+        }
     }
 }
